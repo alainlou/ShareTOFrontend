@@ -8,9 +8,6 @@ import { Item, ITEMS } from './models/item';
 })
 export class AppComponent implements OnInit {
   title = 'Hack for HackLassonde';
-  items: Item [] = ITEMS;
 
-  ngOnInit() {
-    console.log('started');
-  }
+  ngOnInit() { }
 }

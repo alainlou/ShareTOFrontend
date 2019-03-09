@@ -1,0 +1,11 @@
+<div class="container">
+  <li *ngFor="let item of items">
+    <div *ngIf="item.available" class="card" style="width: 18rem">
+      <img src="item.img" class="card-img-top">
+      <div class="card-body">
+        <div class="card-title">{{ item.title }}</div>
+        <div class="card-text">{{ item.description }}</div>
+      </div>
+    </div>
+  </li>
+</div>
