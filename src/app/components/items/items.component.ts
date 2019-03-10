@@ -26,6 +26,7 @@ export class ItemsComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private itemService: ItemService) { }
 
+
   ngOnInit() {
     this.postForm = this.formBuilder.group({
       'title': [''],
@@ -50,7 +51,9 @@ export class ItemsComponent implements OnInit {
         'content': 'lol too lazy',
         'contact': this.postForm.value.contact
       };
-      this.itemService.postItem(item);
+      this.itemService.postItem(item).subscribe((resp) => {
+        location.reload();
+      });
     }
   }
 

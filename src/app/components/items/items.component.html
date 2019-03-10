@@ -11,7 +11,7 @@
       [markerDraggable]="false" (dragEnd)="markerDragEnd(item, $event)">
 
       <agm-info-window [isOpen]="true">
-        <strong>{{label.content}}</strong>
+        <strong>{{item.title}}</strong>
       </agm-info-window>
     </agm-marker>
   </agm-map>

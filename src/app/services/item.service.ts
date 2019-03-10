@@ -24,8 +24,6 @@ export class ItemService {
 
   postItem(simpleItem: SimpleItem) {
     const BASE_URL: string = environment.apiUrl;
-    this.http.post(BASE_URL + '/post-item', simpleItem).subscribe((resp) => {
-      console.log('successful POST');
-    });
+    return this.http.post(BASE_URL + '/post-item', simpleItem);
   }
 }
