@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ITEMS, Item } from 'src/app/models/item';
+
+import {FormBuilder} from '@angular/forms'
 
 @Component({
   selector: 'app-items',
@@ -8,54 +9,72 @@ import { ITEMS, Item } from 'src/app/models/item';
 })
 
 export class ItemsComponent implements OnInit {
-  items: Item[] = ITEMS;
+
+  postForm: any;
+
+  searchForm: any;
 
   latitude = 43.653226;
   longitude = -79.383184;
 
   mapType = 'roadmap';
-  zoom: number = 12;
+  zoom: number = 13;
 
   markers: marker[] = [
 	  {
 		  lat: 43.653226,
 		  lng: -79.383184,
-		  label: 'A',
+		  label: '',
       draggable: false,
       content: 'free iPhone'
 	  },
 	  {
-		  lat: 43.643310,
-		  lng: -79.383184,
-		  label: 'B',
+		  lat: 43.7722329,
+		  lng: -79.50668879999999,
+		  label: '',
       draggable: false,
       content: 'free Mac'
 	  },
 	  {
 		  lat: 43.663222,
 		  lng: -79.383184,
-		  label: 'C',
+		  label: '',
       draggable: false,
       content: 'free something'
 	  }
   ]
 
-  constructor() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position)=>{
-        this.latitude = position.coords.latitude;
-        this.longitude = position.coords.latitude;
-      });
-    } else { 
-      this.latitude = 43.653226;
-      this.longitude = -79.383184;
+  postSubmit() {
+    if (this.postForm.dirty) {
+      console.log(this.postForm.value); 
     }
   }
 
+
+  searchSubmit() {
+    if (this.postForm.dirty) {
+      console.log(this.searchForm.value); 
+    }
+  }
+
+  constructor(private formBuilder: FormBuilder) {
+    this.postForm = this.formBuilder.group({
+      'postTitle': [''],
+      'postAddress': [''],
+      'postContact': ['']
+    });
+    this.searchForm = this.formBuilder.group({
+      'searchTitle': ['']
+    });
+  }
+
+
   ngOnInit() {
+
   }
 
 }
+
 
 interface marker {
 	lat: number;
