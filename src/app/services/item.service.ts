@@ -14,7 +14,7 @@ export class ItemService {
 
   getItemByTitle(searchString: string) {
     const BASE_URL: string = environment.apiUrl;
-    this.http.get<Item []>(BASE_URL + '/item' + '/' + searchString);
+    return this.http.get<Item []>(BASE_URL + '/items' + '/' + searchString);
   }
 
   getItems() {

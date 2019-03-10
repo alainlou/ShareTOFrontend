@@ -1,26 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 
-import {FormBuilder} from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Item, SimpleItem } from 'src/app/models/item';
 import { ItemService } from 'src/app/services/item.service';
 
 @Component({
   selector: 'app-items',
-  templateUrl: './items.component.html',
-  styleUrls: ['./items.component.scss']
+  templateUrl: './map.component.html',
+  styleUrls: ['./map.component.scss']
 })
 
-export class ItemsComponent implements OnInit {
+export class MapComponent implements OnInit {
 
-  postForm: any;
-
-  searchForm: any;
+  postForm: FormGroup;
+  searchForm: FormGroup;
 
   latitude = 43.653226;
   longitude = -79.383184;
-
-  mapType = 'roadmap';
-  zoom: number = 13;
 
   items: Item [];
 
@@ -35,8 +31,12 @@ export class ItemsComponent implements OnInit {
       'content': [''],
     });
     this.searchForm = this.formBuilder.group({
-      'searchTitle': ['']
+      'title': ['']
     });
+    this.getItems();
+  }
+
+  getItems() {
     this.itemService.getItems().subscribe((resp) => {
       this.items = resp;
     });
@@ -48,31 +48,22 @@ export class ItemsComponent implements OnInit {
       const item: SimpleItem = {
         'title': this.postForm.value.title,
         'address': this.postForm.value.address,
-        'content': 'lol too lazy',
+        'content': this.postForm.value.content,
         'contact': this.postForm.value.contact
       };
       this.itemService.postItem(item).subscribe((resp) => {
-        location.reload();
+        this.getItems();
       });
     }
   }
 
 
   searchSubmit() {
-    if (this.postForm.dirty) {
-      console.log(this.searchForm.value); 
+    if (this.searchForm.dirty) {
+      this.itemService.getItemByTitle(this.searchForm.value.title).subscribe((resp) => {
+        this.items = resp;
+      });
     }
   }
-
-  
-
 }
 
-
-interface marker {
-	lat: number;
-	lng: number;
-	label?: string;
-  draggable: boolean;
-  content: string;
-}

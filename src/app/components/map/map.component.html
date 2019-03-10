@@ -1,0 +1,63 @@
+<div class="container-fluid" style="padding: 0%;">
+  <div class="row">
+    <agm-map class="col"  [latitude]="latitude" [longitude]="longitude" [zoom]="10" style="width: 65vmax;">
+      <agm-marker *ngFor="let item of items; let i = index" [latitude]="latitude" [longitude]="longitude" [label]="You"
+        [markerDraggable]="false">
+        <agm-info-window [isOpen]="false">
+          <strong>Your current location</strong>
+        </agm-info-window>
+      </agm-marker>
+      <agm-marker *ngFor="let item of items; let i = index" [latitude]="item.lat" [longitude]="item.lng" [label]=""
+        [markerDraggable]="false" (dragEnd)="markerDragEnd(item, $event)">
+
+        <agm-info-window [isOpen]="true">
+          <h6>{{ item.title }}</h6>
+          <div>{{ item.address }}</div>
+          <div>{{ item.contact }}</div>
+          <br>
+          <div>{{ item.content }}</div>
+        </agm-info-window>
+      </agm-marker>
+    </agm-map>
+    <div class="col" style="float:right; margin:2%; margin-right:4%">
+      <h3>Post Your Own Item</h3>
+      <form [formGroup]="postForm" style="margin-top: 5%">
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Title</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control"  formControlName="title"  placeholder="Extra ECE105 textbook">
+              </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Address</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control"  formControlName="address"  placeholder="4700 Keele St, Toronto, ON M3J 1P3">
+            </div>
+          </div>
+          <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Contact</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control"  formControlName="contact" placeholder="(519)-123-123">
+              </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Content</label>
+            <div class="col-sm-10">
+              <input type="textarea" class="form-control"  formControlName="content" placeholder="A description of the item">
+            </div>
+        </div>
+        <button type="button" (click)="postSubmit()" class="btn btn-primary" style="width: 20vmax; position: center; margin-left: 18%">Post Your Item</button>
+      </form>
+      <br>
+      <h3>Search for a Specific Item</h3>
+      <form [formGroup]="searchForm"  style="margin-top:10%">
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Title</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" formControlName="title" placeholder="Item name">
+            </div>
+        </div>
+        <button type="button" (click)="searchSubmit()" class="btn btn-success" style="width: 20vmax; position: center; margin-left: 18%">Search</button>
+      </form>
+  </div>
+</div>
