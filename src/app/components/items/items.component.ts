@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import {FormBuilder} from '@angular/forms'
+import {FormBuilder} from '@angular/forms';
+import { Item, SimpleItem } from 'src/app/models/item';
+import { ItemService } from 'src/app/services/item.service';
 
 @Component({
   selector: 'app-items',
@@ -20,33 +22,35 @@ export class ItemsComponent implements OnInit {
   mapType = 'roadmap';
   zoom: number = 13;
 
-  markers: marker[] = [
-	  {
-		  lat: 43.653226,
-		  lng: -79.383184,
-		  label: '',
-      draggable: false,
-      content: 'free iPhone'
-	  },
-	  {
-		  lat: 43.7722329,
-		  lng: -79.50668879999999,
-		  label: '',
-      draggable: false,
-      content: 'free Mac'
-	  },
-	  {
-		  lat: 43.663222,
-		  lng: -79.383184,
-		  label: '',
-      draggable: false,
-      content: 'free something'
-	  }
-  ]
+  items: Item [];
+
+  constructor(private formBuilder: FormBuilder, private itemService: ItemService) { }
+
+  ngOnInit() {
+    this.postForm = this.formBuilder.group({
+      'title': [''],
+      'address': [''],
+      'contact': [''],
+      'content': [''],
+    });
+    this.searchForm = this.formBuilder.group({
+      'searchTitle': ['']
+    });
+    this.itemService.getItems().subscribe((resp) => {
+      this.items = resp;
+    });
+  }
 
   postSubmit() {
     if (this.postForm.dirty) {
-      console.log(this.postForm.value); 
+      console.log(this.postForm.value);
+      const item: SimpleItem = {
+        'title': this.postForm.value.title,
+        'address': this.postForm.value.address,
+        'content': 'lol too lazy',
+        'contact': this.postForm.value.contact
+      };
+      this.itemService.postItem(item);
     }
   }
 
@@ -57,21 +61,7 @@ export class ItemsComponent implements OnInit {
     }
   }
 
-  constructor(private formBuilder: FormBuilder) {
-    this.postForm = this.formBuilder.group({
-      'postTitle': [''],
-      'postAddress': [''],
-      'postContact': ['']
-    });
-    this.searchForm = this.formBuilder.group({
-      'searchTitle': ['']
-    });
-  }
-
-
-  ngOnInit() {
-
-  }
+  
 
 }
 

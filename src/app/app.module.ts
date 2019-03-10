@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { ItemsComponent } from './components/items/items.component';
 import {FormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {FormsModule} from '@angular/forms';
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyChR4on46LpBKgjouxC0iFjdIlF974swYA'
-    })
+    }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
