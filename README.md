@@ -6,7 +6,7 @@ This webapp shows items available to share by people that post on our platform b
 Using Angular.js, Java Spring Boot, MangoDB, Google Map API and Google Geocoder API.
 
 
-Backend Developer: [Alain](https://github.com/alainlou) (Waterloo ECE 2022)
+Backend Developer: [Alain Lou](https://github.com/alainlou) (Waterloo ECE 2022)
 
 Frontend Developer: [Fangyu Wu](https://github.com/WuFangyu) (Waterloo CS 2021)
 
