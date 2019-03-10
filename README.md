@@ -1,6 +1,15 @@
 # Hack Lassonde
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
+This webapp shows items available to share by people that post on our platform based on the user's current location. We also implemented fuzzy-match searching and user posting.
+
+
+Using Angular.js, Java Spring Boot, MangoDB, Google Map API and Google Geocoder API.
+
+
+Backend Developer: [Alain](https://github.com/alainlou) (Waterloo ECE 2022)
+
+Frontend Developer: [Fangyu Wu](https://github.com/WuFangyu) (Waterloo CS 2021)
+
 
 ## Development server
 
