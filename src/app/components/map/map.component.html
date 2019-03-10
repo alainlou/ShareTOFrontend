@@ -46,8 +46,9 @@
               <input type="textarea" class="form-control"  formControlName="content" placeholder="A description of the item">
             </div>
         </div>
-        <button type="button" (click)="postSubmit()" class="btn btn-primary" style="width: 20vmax; position: center; margin-left: 18%">Post Your Item</button>
+        <button type="button" (click)="postSubmit()" class="btn btn-primary" style="float:right">Post</button>
       </form>
+      <br>
       <br>
       <h3>Search for a Specific Item</h3>
       <form [formGroup]="searchForm"  style="margin-top:10%">
@@ -57,7 +58,7 @@
               <input type="text" class="form-control" formControlName="title" placeholder="Item name">
             </div>
         </div>
-        <button type="button" (click)="searchSubmit()" class="btn btn-success" style="width: 20vmax; position: center; margin-left: 18%">Search</button>
+        <button type="button" (click)="searchSubmit()" class="btn btn-success" style="float:right">Search</button>
       </form>
   </div>
 </div>
