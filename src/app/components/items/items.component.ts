@@ -41,6 +41,15 @@ export class ItemsComponent implements OnInit {
   ]
 
   constructor() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position)=>{
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.latitude;
+      });
+    } else { 
+      this.latitude = 43.653226;
+      this.longitude = -79.383184;
+    }
   }
 
   ngOnInit() {
