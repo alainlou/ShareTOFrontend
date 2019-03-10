@@ -1,21 +1,23 @@
-<div class="container-fluid" style="padding: 0%;">
+<div class="container-fluid" style="padding: 0%; margin: 0%">
   <div class="row">
-    <agm-map class="col"  [latitude]="latitude" [longitude]="longitude" [zoom]="10" style="width: 65vmax;">
+    <agm-map class="col"  [latitude]="latitude" [longitude]="longitude" [zoom]="16" style="width: 65vmax;">
       <agm-marker *ngFor="let item of items; let i = index" [latitude]="latitude" [longitude]="longitude" [label]="You"
         [markerDraggable]="false">
-        <agm-info-window [isOpen]="false">
-          <strong>Your current location</strong>
+        <agm-info-window [isOpen]="true">
+          <strong>Current location</strong>
         </agm-info-window>
       </agm-marker>
       <agm-marker *ngFor="let item of items; let i = index" [latitude]="item.lat" [longitude]="item.lng" [label]=""
         [markerDraggable]="false" (dragEnd)="markerDragEnd(item, $event)">
-
-        <agm-info-window [isOpen]="true">
+        <!-- <agm-info-window [isOpen]="false">
+          <h6>{{ item.title }}</h6>
+        </agm-info-window> -->
+        <agm-info-window style="width: 10rem" [isOpen]="true">
           <h6>{{ item.title }}</h6>
           <div>{{ item.address }}</div>
           <div>{{ item.contact }}</div>
           <br>
-          <div>{{ item.content }}</div>
+          <div class="wrap-20">{{ item.content }}</div>
         </agm-info-window>
       </agm-marker>
     </agm-map>

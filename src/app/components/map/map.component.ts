@@ -15,8 +15,8 @@ export class MapComponent implements OnInit {
   postForm: FormGroup;
   searchForm: FormGroup;
 
-  latitude = 43.653226;
-  longitude = -79.383184;
+  latitude = 43.7722329;
+  longitude = -79.50668879999999;
 
   items: Item [];
 
