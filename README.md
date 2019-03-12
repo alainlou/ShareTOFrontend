@@ -3,12 +3,15 @@
 This webapp shows items available to share by people that post on our platform based on the user's current location. We also implemented fuzzy-match searching and user posting.
 
 
-Using Angular.js, Java Spring Boot, MangoDB, Google Map API and Google Geocoder API.
+Using Angular, Java Spring Boot, MongoDB on GCP, Google Maps API and Google GeoCoding API.
 
+(Backend is [here](https://github.com/alainlou/ShareTOBackend))
 
-Backend Developer: [Alain Lou](https://github.com/alainlou) (Waterloo ECE 2022)
+Backend Developer: [Alain Lou](https://github.com/alainlou) (Waterloo ECE 2023)
 
 Frontend Developer: [Fangyu Wu](https://github.com/WuFangyu) (Waterloo CS 2021)
+
+![Demo Screenshot](https://github.com/alainlou/alainlou.github.io/blob/master/res/pics/ShareTODemo.PNG)
 
 
 ## Development server
