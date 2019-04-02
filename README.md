@@ -7,7 +7,7 @@ Using Angular, Java Spring Boot, MongoDB on GCP, Google Maps API and Google GeoC
 
 (Backend is [here](https://github.com/alainlou/ShareTOBackend))
 
-Backend Developer: [Alain Lou](https://github.com/alainlou) (Waterloo ECE 2023)
+Backend Developer: [Alain Lou](https://github.com/alainlou) (Waterloo ECE 2023), Faisal Romshoo (https://github.com/romshoo) (Waterloo Pure Mathematics 2023)
 
 Frontend Developer: [Fangyu Wu](https://github.com/WuFangyu) (Waterloo CS 2021)
 
