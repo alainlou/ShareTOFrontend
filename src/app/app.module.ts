@@ -19,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyChR4on46LpBKgjouxC0iFjdIlF974swYA'
+      apiKey: 'YOUR_API_KEY'
     }),
     HttpClientModule
   ],
