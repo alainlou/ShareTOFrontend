@@ -1,0 +1,6 @@
+{
+    "/api/items": {
+        "target": "https://share-to.herokuapp.com",
+        "changeOrigin": true
+    }
+}

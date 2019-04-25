@@ -13,17 +13,14 @@ export class ItemService {
   constructor(private http: HttpClient) { }
 
   getItemByTitle(searchString: string) {
-    const BASE_URL: string = environment.apiUrl;
-    return this.http.get<Item []>(BASE_URL + '/items' + '/' + searchString);
+    return this.http.get<Item []>('api/items/' + searchString);
   }
 
   getItems() {
-    const BASE_URL: string = environment.apiUrl;
-    return this.http.get<Item []>(BASE_URL + '/items');
+    return this.http.get<Item []>('api/items');
   }
 
   postItem(simpleItem: SimpleItem) {
-    const BASE_URL: string = environment.apiUrl;
-    return this.http.post(BASE_URL + '/post-item', simpleItem);
+    return this.http.post('api/items', simpleItem);
   }
 }
